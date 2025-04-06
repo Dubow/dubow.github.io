@@ -1,0 +1,75 @@
+/* Light Theme Styles */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header, footer {
+  background-color: #f8f8f8;
+  color: #444;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+}
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+a {
+  color: #007acc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+code {
+  background-color: #f1f1f1;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+/* Navigation (Optional if you want to add) */
+nav {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+nav a {
+  margin: 0 1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #007acc;
+}
+
+footer {
+  border-top: 1px solid #eaeaea;
+  margin-top: 2rem;
+}
