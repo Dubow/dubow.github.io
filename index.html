@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abdirahman Dubow | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -14,49 +15,64 @@
     }
 
     html, body {
-      height: 100%;
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
       line-height: 1.6;
-      background: #f9fafc;
+      background: #fff;
       color: #333;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       display: flex;
-      flex-direction: column;
+    }
+
+    /* Hamburger Menu Icon */
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      color: #05387b;
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1000;
+      cursor: pointer;
     }
 
     /* Sidebar */
     .sidebar {
-      width: 250px;
+      width: 400px;
       padding: 2rem;
-      background: #fff;
-      border-right: 1px solid #eee;
       position: fixed;
       height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
+      background: #fff;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
     }
 
     .sidebar img {
-      width: 120px;
-      height: 120px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       margin-bottom: 1rem;
+      margin-top: 2rem;
+      border: 3px solid #1a73e8;
     }
 
     .sidebar h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #1a73e8;
+      font-size: 1rem;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin-bottom: 0.8rem;
+      color: #05387b;
     }
 
     .sidebar p {
       font-size: 0.9rem;
-      color: #666;
-      text-align: center;
+      font-family: cursive;
+      color: #05387b;
     }
 
     .sidebar .location {
@@ -73,20 +89,41 @@
     .sidebar .social-links {
       margin-top: 1rem;
       display: flex;
-      gap: 1rem;
+      flex-direction: column;
+      gap: 2rem;
     }
 
     .sidebar .social-links a {
-      color: #666;
-      font-size: 1.2rem;
+      color: #05387b;
+      font-size: 1.5rem;
       text-decoration: none;
+      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .sidebar .social-links a span {
+      font-size: 0.9rem;
+    }
+
+    .sidebar .social-links a:hover {
+      color: #1a73e8;
+      animation: shake 0.5s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
     }
 
     /* Navigation */
     nav {
       position: fixed;
       top: 0;
-      left: 250px;
+      left: 400px;
       right: 0;
       background-color: #fff;
       border-bottom: 1px solid #eee;
@@ -96,7 +133,6 @@
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
       padding: 1rem;
     }
 
@@ -106,34 +142,56 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #1a73e8;
-      font-weight: 500;
+      color: #05387b;
+      font-weight: bold;
       font-size: 1rem;
       text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff6f61;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #ff6f61;
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     /* Main Content */
     .main-content {
-      margin-left: 250px;
+      margin-left: 350px;
       padding: 80px 20px 20px;
-      flex: 1;
-      min-height: calc(100vh - 80px); /* Ensures content stretches to fill viewport minus footer */
+      width: calc(100% - 420px);
     }
 
     section {
-      max-width: 800px;
+      max-width: 920px;
       margin: 0 auto 3rem;
     }
 
     h1 {
       font-size: 2rem;
+      font-family: 'Courier New', Courier, monospace;
       margin-bottom: 1rem;
-      color: #1a73e8;
+      color: #05387b;
     }
 
     p {
-      font-size: 1rem;
-      color: #555;
+      font-size: 1.2rem;
+      font-family: 'Times New Roman', Times, serif;
+      color: #05387b;
     }
 
     /* Skills Section */
@@ -150,12 +208,19 @@
       border: 1px solid #eee;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .skill-card h3 {
       font-size: 1.2rem;
+      font-weight: bold;
       margin-bottom: 1rem;
-      color: #333;
+      color: #3f0652;
     }
 
     .skill-card ul {
@@ -164,7 +229,7 @@
 
     .skill-card ul li {
       font-size: 0.95rem;
-      color: #666;
+      color: #05387b;
       margin-bottom: 0.5rem;
       position: relative;
       padding-left: 1rem;
@@ -177,29 +242,43 @@
       color: #1a73e8;
     }
 
-    /* News Section */
-    .news-item {
-      margin-bottom: 1rem;
-    }
-
-    .news-item span {
-      font-weight: 600;
-      color: #1a73e8;
-    }
-
     /* Projects Section */
     .project-item {
       margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .project-item h3 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
-      color: #333;
+      color: #05387b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-item h3 a {
+      color: #05387b;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .project-item h3 a:hover {
+      color: #1a73e8;
     }
 
     .project-item p {
-      font-size: 0.95rem;
+      font-size: 1.2rem;
       color: #666;
     }
 
@@ -207,48 +286,262 @@
     footer {
       text-align: center;
       padding: 2rem 1rem;
-      background: #111;
-      color: #fff;
-      margin-left: 250px;
-      width: calc(100% - 250px);
+      color: #666;
+      margin-left: -20px;
+      width: calc(100% + 60px);
+    }
+
+    footer p {
+      color: #666;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: block;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+        box-shadow: none;
+        border-bottom: 1px solid #eee;
+      }
+
+      .sidebar img {
+        width: 100px;
+        height: 100px;
+        margin-top: 1rem;
+      }
+
+      .sidebar h2 {
+        font-size: 1.2rem;
+      }
+
+      .sidebar p {
+        font-size: 0.8rem;
+      }
+
+      .sidebar .social-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .sidebar .social-links a {
+        font-size: 1.2rem;
+      }
+
+      .sidebar .social-links a span {
+        display: none; /* Hide text labels on mobile */
+      }
+
+      /* Navigation */
+      nav {
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        display: none; /* Hidden by default on mobile */
+      }
+
+      nav.active ul {
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0.5rem 0;
+      }
+
+      nav ul li a {
+        font-size: 0.9rem;
+      }
+
+      /* Main Content */
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 60px 15px 15px;
+      }
+
+      section {
+        max-width: 100%;
+        margin: 0 0 2rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      /* Skills Section */
+      .skills {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .skill-card {
+        padding: 1rem;
+      }
+
+      .skill-card h3 {
+        font-size: 1rem;
+      }
+
+      .skill-card ul li {
+        font-size: 0.85rem;
+      }
+
+      /* Projects Section */
+      .project-item {
+        padding: 0.8rem;
+      }
+
+      .project-item h3 {
+        font-size: 1rem;
+      }
+
+      .project-item p {
+        font-size: 0.9rem;
+      }
+
+      /* Footer */
+      footer {
+        margin-left: 0;
+        width: 100%;
+        padding: 1rem;
+      }
+
+      footer p {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* For very small screens (e.g., < 480px) */
+    @media (max-width: 480px) {
+      .sidebar img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .sidebar h2 {
+        font-size: 1rem;
+      }
+
+      .sidebar p {
+        font-size: 0.7rem;
+      }
+
+      .sidebar .social-links a {
+        font-size: 1rem;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .skill-card h3 {
+        font-size: 0.9rem;
+      }
+
+      .skill-card ul li {
+        font-size: 0.8rem;
+      }
+
+      .project-item h3 {
+        font-size: 0.9rem;
+      }
+
+      .project-item p {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 
 <body>
+  <!-- Hamburger Menu Icon -->
+  <div class="hamburger">
+    <i class="fas fa-bars"></i>
+  </div>
+
   <!-- Sidebar -->
   <div class="sidebar">
-    <img src="https://via.placeholder.com/120" alt="Profile Picture">
+    <img src="/images/profile_photo.jpg" alt="Profile Picture">
     <h2>Abdirahman Dubow</h2>
-    <p>Personal Website</p>
-    <p class="location">Shanghai, China</p>
+    <p>Shenyang University of Technology</p>
+    <p class="location">Shenyang, China</p>
     <div class="social-links">
-      <a href="mailto:abdirahmandubow4@gmail.com">📧</a>
-      <a href="https://github.com/Dubow">🐙</a>
+      <a href="mailto:abdirahmandubow4@gmail.com" title="Email">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+      </a>
+      <a href="https://github.com/Dubow" title="GitHub">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+      </a>
+      <a href="https://weixin.qq.com/xamaan-1802" title="WeChat">
+        <i class="fab fa-weixin"></i>
+        <span>WeChat</span>
+      </a>
+      <a href="https://www.linkedin.com/in/abdirahman-dubow-03338b237/" title="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://twitter.com/your-twitter-handle" title="Twitter">
+        <i class="fab fa-twitter"></i>
+        <span>Twitter</span>
+      </a>
+      <a href="https://www.instagram.com/your-instagram-handle" title="Instagram">
+        <i class="fab fa-instagram"></i>
+        <span>Instagram</span>
+      </a>
     </div>
   </div>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#about">Homepage</a></li>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-    </ul>
-  </nav>
-
   <!-- Main Content -->
   <div class="main-content">
+    <!-- Navigation -->
+    <nav>
+      <ul>
+        <li><a href="#about">Homepage</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+      </ul>
+    </nav>
+
     <section id="about">
-      <h1>Hi! My name is Abdirahman Dubow</h1>
-      <p>I’m a fourth-year undergraduate student at Shanghai University of Technology, majoring in Computer Science. I’m passionate about web development, virtual consultation solutions, and creating user-centered applications. I specialize in building full-stack applications using technologies like Node.js, React, and MySQL, and I’m actively seeking opportunities to grow as a developer.</p>
+      <p>Hi! I'm Abdirahman Dubow, a sophomore at Shenyang University of Technology, pursuing a degree in Computer Science. I'm deeply passionate about programming, Artificial Intelligence (AI), and designing user-centered applications. My primary focus lies in backend development, complemented by hands-on experience in full-stack development, where I strive to create impactful and efficient solutions.</p><br>
+      <p>Feel free to reach out to me if you'd like to discuss technology or explore potential collaboration!</p>
       <div class="skills">
         <div class="skill-card">
-          <h3>Full-Stack Developer</h3>
+          <h3>Backend Developer</h3>
           <ul>
-            <li>Expertise in Node.js, React, and MySQL</li>
+            <li>Expertise in Python, C, MySQL, and API development</li>
             <li>Built scalable web applications</li>
             <li>Focus on user-centered design</li>
           </ul>
@@ -257,7 +550,7 @@
           <h3>Tech Enthusiast</h3>
           <ul>
             <li>Proficient in C, Java, JavaScript, Python</li>
-            <li>Experience with Zoom API, Firebase</li>
+            <li>Experience with RESTful APIs, Firebase</li>
             <li>Knowledge of version control (Git)</li>
           </ul>
         </div>
@@ -272,44 +565,58 @@
       </div>
     </section>
 
-    <section id="news">
-      <h1>News</h1>
-      <div class="news-item">
-        <span>2025.04:</span> Currently seeking full-stack development opportunities.
-      </div>
-      <div class="news-item">
-        <span>2024.07:</span> Developed a professional website for Hamil Hospital.
-      </div>
-      <div class="news-item">
-        <span>2024.01:</span> Launched ZoomAPI, a virtual consultation app.
-      </div>
-    </section>
-
     <section id="projects">
       <h1>Projects</h1>
+      <p>Here are some of the exciting projects I've built and contributed to:</p><br>
       <div class="project-item">
-        <h3>ZoomAPI – Virtual Consultation App</h3>
-        <p>A full-stack mobile application for virtual medical consultations using React, Node.js, MySQL, and Zoom API. Designed an API integration for seamless payments, tracking transactions, and scheduling efficiency.</p>
+        <h3>
+          <span>💊 Medizoom – Telemedicine App</span>
+          <a href="https://github.com/Dubow/MediZoom-backend" target="_blank" title="View on GitHub">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </h3>
+        <p>A cross-platform mobile Telemedicine app developed using React Native, Node.js, and MySQL, featuring virtual consultations, doctor dashboards, and MPesa integration.</p>
       </div>
       <div class="project-item">
-        <h3>Hamil Hospital – Professional Website</h3>
-        <p>Developed a responsive website using Node.js, HTML, CSS, and JavaScript. Features include doctor profiles, contact information, and facility details, improving user engagement by 20%.</p>
+        <h3>
+          <span>✍️ Blog Page System</span>
+          <a href="https://github.com/Dubow/husdubow_blog-site" target="_blank" title="View on GitHub">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </h3>
+        <p>A dynamic blog platform where users can create, read, update, delete posts, and interact via likes, dislikes, and comments, powered by Node.js, MySQL, and JavaScript.</p>
       </div>
       <div class="project-item">
-        <h3>Custom Blog Site Client</h3>
-        <p>Built a full-stack blog site using Node.js, HTML, CSS, JavaScript, and MySQL. Implemented secure user authentication and content management, enabling users to share and comment on posts.</p>
+        <h3>
+          <span>🏥 Hamlin Hospital – Institutional Website</span>
+          <a href="https://github.com/Dubow/hamlin-hospital" target="_blank" title="View on GitHub">
+            <i class="fas fa-arrow-up-right-from-square"></i>
+          </a>
+        </h3>
+        <p>A professional website for an organization built using HTML, CSS, and JavaScript, showcasing hospital services, doctor profiles, contact information, and facility details.</p>
       </div>
     </section>
 
     <section id="education">
       <h1>Education</h1>
-      <p>Shanghai University of Technology<br>BS in Computer Science<br>Coursework: Computer Organization, Data Structure, Linear Algebra, Calculus, Discrete Mathematics</p>
+      <p>Shenyang University of Technology<br>BS in Computer Science || gpa: 3.58/4.0<br>Coursework: Computer Organization, Data Structure, Linear Algebra, Calculus, Discrete Mathematics</p>
     </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Abdirahman Dubow. All rights reserved.</p>
+    </footer>
   </div>
 
-  <footer>
-    <p>© 2025 Abdirahman Dubow. All rights reserved.</p>
-  </footer>
+  <script>
+    // Toggle nav on hamburger click
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 
 </html>
