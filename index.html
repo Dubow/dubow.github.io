@@ -1,68 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dubow Portfolio</title>
+  <title>Dubow | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #111;
+    }
+
     nav {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      background-color: #333;
-      color: white;
-      padding: 10px 0;
-      text-align: center;
+      background-color: #ffffff;
+      border-bottom: 1px solid #eee;
+      z-index: 999;
     }
-    nav a {
-      color: white;
-      margin: 0 20px;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
       text-decoration: none;
+      color: #333;
+      font-weight: 500;
     }
+
     section {
-      padding: 80px 20px;
-      height: 100vh;
+      padding: 100px 20px;
+      max-width: 800px;
+      margin: auto;
+      min-height: 100vh;
     }
-    #about { background: #f4f4f4; }
-    #projects { background: #fff; }
-    #resume { background: #f4f4f4; }
-    #contact { background: #fff; }
+
+    section:nth-child(even) {
+      background: #fff;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #111;
+      color: #fff;
+    }
   </style>
 </head>
+
 <body>
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#contact">Contact</a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
-  
+
   <section id="about">
     <h1>About Me</h1>
-    <p>Content about yourself goes here.</p>
+    <p>I’m Dubow, a passionate developer focusing on web development, research, and user-centered design. I enjoy solving problems and building clean, responsive experiences for the web.</p>
   </section>
-  
+
   <section id="projects">
     <h1>Projects</h1>
-    <p>Content about your projects goes here.</p>
+    <p>Here you can list your major works or side projects with short descriptions and links to GitHub or live demos.</p>
   </section>
-  
-  <section id="resume">
-    <h1>Resume</h1>
-    <p>Content about your resume goes here.</p>
+
+  <section id="publications">
+    <h1>Publications</h1>
+    <p>List your published papers or written works here with short descriptions and links to external sources.</p>
   </section>
-  
+
   <section id="contact">
     <h1>Contact</h1>
-    <p>Content about how to contact you goes here.</p>
+    <p>Email: youremail@example.com</p>
+    <p>LinkedIn: <a href="#">linkedin.com/in/dubow</a></p>
   </section>
+
+  <footer>
+    <p>&copy; 2025 Dubow. All rights reserved.</p>
+  </footer>
 </body>
+
 </html>
