@@ -17,16 +17,73 @@
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
       line-height: 1.6;
-      background: #f9f9f9;
-      color: #111;
+      background: #f9fafc;
+      color: #333;
+      display: flex;
     }
 
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      padding: 2rem;
+      background: #fff;
+      border-right: 1px solid #eee;
+      position: fixed;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #1a73e8;
+    }
+
+    .sidebar p {
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+    }
+
+    .sidebar .location {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem 0;
+    }
+
+    .sidebar .location::before {
+      content: "📍";
+      margin-right: 0.5rem;
+    }
+
+    .sidebar .social-links {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .sidebar .social-links a {
+      color: #666;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    /* Navigation */
     nav {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #ffffff;
+      left: 250px;
+      right: 0;
+      background-color: #fff;
       border-bottom: 1px solid #eee;
       z-index: 999;
     }
@@ -39,29 +96,33 @@
     }
 
     nav ul li {
-      margin: 0 1rem;
+      margin: 0 1.5rem;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #333;
+      color: #1a73e8;
       font-weight: 500;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    /* Main Content */
+    .main-content {
+      margin-left: 250px;
+      padding: 80px 20px 20px;
+      flex: 1;
     }
 
     section {
-      padding: 100px 20px;
       max-width: 800px;
-      margin: auto;
-      min-height: 100vh;
-    }
-
-    section:nth-child(even) {
-      background: #fff;
+      margin: 0 auto 3rem;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin-bottom: 1rem;
+      color: #1a73e8;
     }
 
     p {
@@ -69,48 +130,152 @@
       color: #555;
     }
 
+    /* Skills Section */
+    .skills {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .skill-card {
+      flex: 1;
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .skill-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .skill-card ul {
+      list-style: none;
+    }
+
+    .skill-card ul li {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .skill-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1a73e8;
+    }
+
+    /* News Section */
+    .news-item {
+      margin-bottom: 1rem;
+    }
+
+    .news-item span {
+      font-weight: 600;
+      color: #1a73e8;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem 1rem;
       background: #111;
       color: #fff;
+      margin-left: 250px;
     }
   </style>
 </head>
 
 <body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <img src="https://via.placeholder.com/120" alt="Profile Picture">
+    <h2>Dubow</h2>
+    <p>Personal Website</p>
+    <p class="location">Your City, Country</p>
+    <div class="social-links">
+      <a href="#">📧</a>
+      <a href="#">🐦</a>
+      <a href="#">🔗</a>
+      <a href="#">📸</a>
+      <a href="#">🐙</a>
+      <a href="#">📚</a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">Homepage</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#news">News</a></li>
       <li><a href="#publications">Publications</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#internships">Internships</a></li>
+      <li><a href="#blogs">Blogs</a></li>
     </ul>
   </nav>
 
-  <section id="about">
-    <h1>About Me</h1>
-    <p>I’m Dubow, a passionate developer focusing on web development, research, and user-centered design. I enjoy solving problems and building clean, responsive experiences for the web.</p>
-  </section>
+  <!-- Main Content -->
+  <div class="main-content">
+    <section id="about">
+      <h1>Hi! My name is Dubow</h1>
+      <p>I’m Dubow, a passionate developer focusing on web development, research, and user-centered design. I enjoy solving problems and building clean, responsive experiences for the web. Feel free to reach out, or learn more from my CV.</p>
+      <div class="skills">
+        <div class="skill-card">
+          <h3>Web Developer</h3>
+          <ul>
+            <li>Frontend development with HTML, CSS, JS</li>
+            <li>Backend with Node.js and Express</li>
+            <li>Experience with React and Vue</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Researcher</h3>
+          <ul>
+            <li>Focus on user-centered design</li>
+            <li>Published in top journals</li>
+            <li>Collaborated with academic institutions</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Explorer</h3>
+          <ul>
+            <li>Visited 10+ countries</li>
+            <li>Active in community volunteering</li>
+            <li>Passionate about learning new cultures</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section id="projects">
-    <h1>Projects</h1>
-    <p>Here you can list your major works or side projects with short descriptions and links to GitHub or live demos.</p>
-  </section>
+    <section id="news">
+      <h1>News</h1>
+      <div class="news-item">
+        <span>2025.01:</span> Launched a new portfolio website!
+      </div>
+      <div class="news-item">
+        <span>2024.10:</span> Completed a project on responsive design.
+      </div>
+      <div class="news-item">
+        <span>2024.08:</span> Published a paper on user experience.
+      </div>
+    </section>
 
-  <section id="publications">
-    <h1>Publications</h1>
-    <p>List your published papers or written works here with short descriptions and links to external sources.</p>
-  </section>
-
-  <section id="contact">
-    <h1>Contact</h1>
-    <p>Email: youremail@example.com</p>
-    <p>LinkedIn: <a href="#">linkedin.com/in/dubow</a></p>
-  </section>
+    <section id="publications">
+      <h1>Publications</h1>
+      <p>List your published papers or written works here with short descriptions and links to external sources.</p>
+    </section>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Dubow. All rights reserved.</p>
+    <p>© 2025 Dubow. All rights reserved.</p>
   </footer>
 </body>
 
