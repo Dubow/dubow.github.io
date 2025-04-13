@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dubow | Portfolio</title>
+  <title>Abdirahman Dubow | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -181,6 +181,22 @@
       color: #1a73e8;
     }
 
+    /* Projects Section */
+    .project-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .project-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .project-item p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
     /* Footer */
     footer {
       text-align: center;
@@ -196,16 +212,12 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <img src="https://via.placeholder.com/120" alt="Profile Picture">
-    <h2>Dubow</h2>
+    <h2>Abdirahman Dubow</h2>
     <p>Personal Website</p>
-    <p class="location">Your City, Country</p>
+    <p class="location">Shanghai, China</p>
     <div class="social-links">
-      <a href="#">📧</a>
-      <a href="#">🐦</a>
-      <a href="#">🔗</a>
-      <a href="#">📸</a>
-      <a href="#">🐙</a>
-      <a href="#">📚</a>
+      <a href="mailto:abdirahmandubow4@gmail.com">📧</a>
+      <a href="https://github.com/Dubow">🐙</a>
     </div>
   </div>
 
@@ -215,41 +227,39 @@
       <li><a href="#about">Homepage</a></li>
       <li><a href="#about">About Me</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#internships">Internships</a></li>
-      <li><a href="#blogs">Blogs</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <div class="main-content">
     <section id="about">
-      <h1>Hi! My name is Dubow</h1>
-      <p>I’m Dubow, a passionate developer focusing on web development, research, and user-centered design. I enjoy solving problems and building clean, responsive experiences for the web. Feel free to reach out, or learn more from my CV.</p>
+      <h1>Hi! My name is Abdirahman Dubow</h1>
+      <p>I’m a fourth-year undergraduate student at Shanghai University of Technology, majoring in Computer Science. I’m passionate about web development, virtual consultation solutions, and creating user-centered applications. I specialize in building full-stack applications using technologies like Node.js, React, and MySQL, and I’m actively seeking opportunities to grow as a developer.</p>
       <div class="skills">
         <div class="skill-card">
-          <h3>Web Developer</h3>
+          <h3>Full-Stack Developer</h3>
           <ul>
-            <li>Frontend development with HTML, CSS, JS</li>
-            <li>Backend with Node.js and Express</li>
-            <li>Experience with React and Vue</li>
-          </ul>
-        </div>
-        <div class="skill-card">
-          <h3>Researcher</h3>
-          <ul>
+            <li>Expertise in Node.js, React, and MySQL</li>
+            <li>Built scalable web applications</li>
             <li>Focus on user-centered design</li>
-            <li>Published in top journals</li>
-            <li>Collaborated with academic institutions</li>
           </ul>
         </div>
         <div class="skill-card">
-          <h3>Explorer</h3>
+          <h3>Tech Enthusiast</h3>
           <ul>
-            <li>Visited 10+ countries</li>
-            <li>Active in community volunteering</li>
-            <li>Passionate about learning new cultures</li>
+            <li>Proficient in C, Java, JavaScript, Python</li>
+            <li>Experience with Zoom API, Firebase</li>
+            <li>Knowledge of version control (Git)</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Problem Solver</h3>
+          <ul>
+            <li>Skilled in data structures & algorithms</li>
+            <li>Background in linear algebra & calculus</li>
+            <li>Passionate about impactful solutions</li>
           </ul>
         </div>
       </div>
@@ -258,24 +268,40 @@
     <section id="news">
       <h1>News</h1>
       <div class="news-item">
-        <span>2025.01:</span> Launched a new portfolio website!
+        <span>2025.04:</span> Currently seeking full-stack development opportunities.
       </div>
       <div class="news-item">
-        <span>2024.10:</span> Completed a project on responsive design.
+        <span>2024.07:</span> Developed a professional website for Hamil Hospital.
       </div>
       <div class="news-item">
-        <span>2024.08:</span> Published a paper on user experience.
+        <span>2024.01:</span> Launched ZoomAPI, a virtual consultation app.
       </div>
     </section>
 
-    <section id="publications">
-      <h1>Publications</h1>
-      <p>List your published papers or written works here with short descriptions and links to external sources.</p>
+    <section id="projects">
+      <h1>Projects</h1>
+      <div class="project-item">
+        <h3>ZoomAPI – Virtual Consultation App</h3>
+        <p>A full-stack mobile application for virtual medical consultations using React, Node.js, MySQL, and Zoom API. Designed an API integration for seamless payments, tracking transactions, and scheduling efficiency.</p>
+      </div>
+      <div class="project-item">
+        <h3>Hamil Hospital – Professional Website</h3>
+        <p>Developed a responsive website using Node.js, HTML, CSS, and JavaScript. Features include doctor profiles, contact information, and facility details, improving user engagement by 20%.</p>
+      </div>
+      <div class="project-item">
+        <h3>Custom Blog Site Client</h3>
+        <p>Built a full-stack blog site using Node.js, HTML, CSS, JavaScript, and MySQL. Implemented secure user authentication and content management, enabling users to share and comment on posts.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <h1>Education</h1>
+      <p>Shanghai University of Technology<br>BS in Computer Science<br>Coursework: Computer Organization, Data Structure, Linear Algebra, Calculus, Discrete Mathematics</p>
     </section>
   </div>
 
   <footer>
-    <p>© 2025 Dubow. All rights reserved.</p>
+    <p>© 2025 Abdirahman Dubow. All rights reserved.</p>
   </footer>
 </body>
 
