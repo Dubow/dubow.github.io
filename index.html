@@ -28,16 +28,32 @@
       display: flex;
     }
 
-    /* Hamburger Menu Icon */
+    /* Updated Hamburger Menu */
     .hamburger {
       display: none;
       font-size: 1.5rem;
       color: #05387b;
-      position: fixed;
+      position: absolute;
       top: 1rem;
-      left: 1rem;
+      right: 1rem;
       z-index: 1000;
       cursor: pointer;
+      background: white;
+      padding: 0.5rem;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .hamburger .close {
+      display: none;
+    }
+
+    nav.active .hamburger .bars {
+      display: none;
+    }
+
+    nav.active .hamburger .close {
+      display: block;
     }
 
     /* Sidebar */
@@ -71,7 +87,7 @@
 
     .sidebar p {
       font-size: 0.9rem;
-      font-family: sans-serif;
+      font-family: cursive;
       color: #05387b;
     }
 
@@ -128,6 +144,7 @@
       background-color: #fff;
       border-bottom: 1px solid #eee;
       z-index: 999;
+      transition: transform 0.3s ease;
     }
 
     nav ul {
@@ -174,6 +191,7 @@
       margin-left: 350px;
       padding: 80px 20px 20px;
       width: calc(100% - 420px);
+      transition: transform 0.3s ease;
     }
 
     section {
@@ -306,7 +324,7 @@
         display: block;
       }
 
-      /* Sidebar */
+      /* Sidebar - Updated for two-column layout */
       .sidebar {
         width: 100%;
         height: auto;
@@ -314,27 +332,50 @@
         padding: 1rem;
         box-shadow: none;
         border-bottom: 1px solid #eee;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: center;
       }
 
       .sidebar img {
-        width: 100px;
-        height: 100px;
-        margin-top: 1rem;
+        width: 80px;
+        height: 80px;
+        margin: 0;
+        grid-row: span 3;
+        align-self: start;
+        margin-top: 3rem;
+        margin-left: 2rem;
       }
 
       .sidebar h2 {
+        margin-top: 1.5rem;
         font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+        align-self: end;
+        margin-left: 2rem;
       }
 
       .sidebar p {
         font-size: 0.8rem;
+        margin-bottom: 0.2rem;
+        align-self: start;
+        margin-left: 2rem;
+      }
+
+      .sidebar .location {
+        margin: 0;
+        margin-left: 2rem;
       }
 
       .sidebar .social-links {
+        grid-column: 2;
+        display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-start;
         gap: 1rem;
         margin-top: 0.5rem;
+        margin-left: 2rem;
       }
 
       .sidebar .social-links a {
@@ -342,41 +383,37 @@
       }
 
       .sidebar .social-links a span {
-        display: none; /* Hide text labels on mobile */
+        display: none;
       }
 
       /* Navigation */
       nav {
         left: 0;
         width: 100%;
-        background-color: #fff;
-        padding: 0;
+        transform: translateY(-100%);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
       }
-
+      
+      nav.active {
+        transform: translateY(0);
+      }
+      
       nav ul {
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0;
-        display: none; /* Hidden by default on mobile */
+        padding: 3rem 0 1rem;
+        display: none;
       }
-
+      
       nav.active ul {
         display: flex;
       }
-
-      nav ul li {
-        margin: 0.5rem 0;
-      }
-
-      nav ul li a {
-        font-size: 0.9rem;
-      }
-
+      
       /* Main Content */
       .main-content {
         margin-left: 0;
         width: 100%;
-        padding: 60px 15px 15px;
+        padding: 15px 15px 15px;
       }
 
       section {
@@ -438,8 +475,8 @@
     /* For very small screens (e.g., < 480px) */
     @media (max-width: 480px) {
       .sidebar img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
       }
 
       .sidebar h2 {
@@ -482,9 +519,10 @@
 </head>
 
 <body>
-  <!-- Hamburger Menu Icon -->
+  <!-- Updated Hamburger Menu Icon -->
   <div class="hamburger">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa-bars bars"></i>
+    <i class="fas fa-times close"></i>
   </div>
 
   <!-- Sidebar -->
@@ -510,9 +548,9 @@
         <i class="fab fa-linkedin-in"></i>
         <span>LinkedIn</span>
       </a>
-      <a href="https://twitter.com/your-twitter-handle" title="Twitter">
-        <i class="fab fa-twitter"></i>
-        <span>Twitter</span>
+      <a href="https://twitter.com/your-twitter-handle" title="X (Twitter)">
+        <i class="fab fa-x-twitter"></i>
+        <span>X (Twitter)</span>
       </a>
       <a href="https://www.instagram.com/your-instagram-handle" title="Instagram">
         <i class="fab fa-instagram"></i>
@@ -528,7 +566,7 @@
       <ul>
         <li><a href="#about">Homepage</a></li>
         <li><a href="#about">About Me</a></li>
-        <li><a href="#news">News</a></li>
+        <li><a href="#Publications">Publications</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
       </ul>
@@ -609,12 +647,29 @@
   </div>
 
   <script>
-    // Toggle nav on hamburger click
+    // Updated Toggle Script
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
+    const mainContent = document.querySelector('.main-content');
 
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       nav.classList.toggle('active');
+      
+      // Prevent scrolling when menu is open
+      if (nav.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu when clicking anywhere outside
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('active') && !e.target.closest('nav') && !e.target.closest('.hamburger')) {
+        nav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
     });
   </script>
 </body>
